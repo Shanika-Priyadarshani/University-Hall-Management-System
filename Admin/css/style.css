@@ -30,7 +30,7 @@ img{max-width:100%;}
 /*end reset*/
 @font-face {
      font-family: 'open_sansregular';
-      src:url('../fonts/OpenSans-Regular-webfont.ttf') format('truetype');
+      /*src:url('../fonts/OpenSans-Regular-webfont.ttf') format('truetype');*/
 }
 body {
 	background:url('../images/bg.jpg');
@@ -90,10 +90,10 @@ body {
 	transition: none;
 	margin: 0 auto;
 }
-.mcd-menu li  a > i.icon1{
+.mcd-menu li  a > i.icon_3{
 	background-position:0px 0px;
 }
-.mcd-menu li a:hover > i.icon1{
+.mcd-menu li a:hover > i.icon_3{
 	background-position:0px -46px;
 }
 .mcd-menu li  a > i.icon2{
@@ -239,6 +239,7 @@ body {
 .grids_of_2{
 	background: #ffffff;
 	margin-top: 5%;
+
 }
 .slider{
 	background: url('../images/slider_bg.jpg') no-repeat bottom right #fff;
@@ -352,6 +353,7 @@ body {
 /* grid1_of_list1 */
 .grid1_of_list1{
 	display: block;
+	width:120%;
 }
 .grid_img{
 	margin-bottom: -5px;
@@ -388,7 +390,7 @@ body {
 	padding: 15px 20px;
 }
 .grid_text1 h4{
-	font-size: 2.5em;
+	font-size: 2.0em;
 	color: #797979;
 	text-transform: capitalize;
 	font-weight: 700;
@@ -403,6 +405,9 @@ body {
 }
 .list1{
 	padding-bottom: 8px;
+}
+.list5{
+	padding-bottom: 1px;
 }
 .list1 li.active a{
 	background: #f5f5f5;
@@ -529,7 +534,7 @@ body {
 	text-transform: capitalize;
 	margin:20px 0 10px;
 	display: block;
-	-webkit-text-stroke: 0.5px;
+	/*-webkit-text-stroke: 0.5px;*/
 }
 .contact_form form input[type="text"], .contact_form form textarea {
 	font-family: 'open_sansregular';
