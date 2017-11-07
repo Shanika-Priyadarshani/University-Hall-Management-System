@@ -8,6 +8,8 @@ $data =mysqli_query($con,$query);
 $array=mysqli_fetch_array($data);
 
 while($row = $data->fetch_assoc()) {
+
     echo $row["first_name"] . "<br>";
+
 }
 ?>
