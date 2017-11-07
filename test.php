@@ -2,10 +2,12 @@
 
 include 'connection.php';
 $con = connect();
+$query = "select * from user_details";
 mysqli_set_charset($con, 'utf8');
-$result = mysqli_query($con, 'SELECT first_name FROM user_details');
+$data =mysqli_query($con,$query);
+$array=mysqli_fetch_array($data);
 
-while ($row = mysqli_fetch_array($result)) {
-    echo $row;
+while($row = $data->fetch_assoc()) {
+    echo $row["first_name"] . "<br>";
 }
 ?>

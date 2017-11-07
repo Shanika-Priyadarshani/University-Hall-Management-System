@@ -1,22 +1,22 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Shanika
+ * Date: 11/7/2017
+ * Time: 5:48 PM
+ */
+
+
+error_reporting(E_ALL ^ E_NOTICE);
 function connect()
 {
-    $dbhost = "localhost";
-    $dbuser = "root";
-    $dbpass = "123";
-    $dbname = "hall_management_db";
+    define('DB_HOST', 'localhost');
+    define('DB_NAME', 'hall_management_db');
+    define('DB_USER','root');
+    define('DB_PASSWORD','123');
 
-    $con = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
-
-
-    mysqli_set_charset($con, 'utf8');
-     $mnn = 'sssssss';
-
-
-    $dg = mysqli_query($con,'select * from user_details');
-    while($row = mysqli_fetch_array($dg)){
-        echo $row;
-        echo $mnn;
-    }
-
+    $con=mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD) or die("Failed to connect to MySQL: " . mysqli_error());
+    $db=mysqli_select_db($con,DB_NAME) or die("Failed to connect to MySQL: " . mysqli_error());
+    return $con;
 }
+?>
