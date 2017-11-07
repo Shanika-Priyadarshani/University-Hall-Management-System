@@ -353,12 +353,11 @@ body {
 /* grid1_of_list1 */
 .grid1_of_list1{
 	display: block;
-
+	width:120%;
 }
 .grid_img{
 	margin-bottom: -5px;
 	position: relative;
-
 }
 .grid_img img{
 	border-radius: 8px 8px 0px 0px;
