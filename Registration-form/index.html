@@ -15,7 +15,6 @@
             <h1>Hall Management System</h1>
             <h2>University of Sumanadasa</h2>
         </div>
-        <div class="image"></div>
         <div class="frm">
             <h1>Register</h1>
             <form>
@@ -36,20 +35,37 @@
                     <input type="email" class="form-control" id="email" placeholder="Enter email">
                 </div>
                 <div class="form-group">
-                    <label for="email">Faculty:</label>
-                    <input type="email" class="form-control" id="faculty" placeholder="Enter Faculty">
+                    <label for="faculty">Faculty:</label>
+                    <input type="text" class="form-control" id="faculty" placeholder="Enter Faculty">
                 </div>
                 <div class="form-group">
                     <label for="email">Academic Year:</label>
-                    <input type="email" class="form-control" id="academic_year" placeholder="Academic Year">
+                    <input type="text" class="form-control" id="academic_year" placeholder="Academic Year">
                 </div>
                 <div class="form-group">
+                    <label for="accomodation_year">Expected year for Accomodation:</label>
+                    <input type="text" class="form-control" id="accomodation_year" placeholder="Accomodation Year">
+                </div>
+                <div class="form-group-address">
                     <label for="email">Home Address:</label>
-                    <input type="email" class="form-control" id="address" placeholder="Enter Address">
+                   <ul>
+                       <li><label for="street">Street/ Steet No.</label></li>
+                       <li> <label for="city">City</label></li>
+                       <li><label for="town">Town</label></li>
+                   </ul>
+                    <ul class="home_address">
+                        <li><input type="text" class="street" id="street" placeholder="Enter Street"></li>
+                        <li><input type="text" class="town" id="town" placeholder="Enter Town"></li>
+                        <li><input type="text" class="city" id="city" placeholder="Enter City "></li>
+                    </ul>
                 </div>
                 <div class="form-group">
                     <label for="pwd">Password:</label>
                     <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+                </div>
+                <div class="form-group">
+                    <label for="conf_pwd">Password:</label>
+                    <input type="password" class="form-control" id="conf_pwd" placeholder="Confirm Password">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-success btn-lg">Submit</button>

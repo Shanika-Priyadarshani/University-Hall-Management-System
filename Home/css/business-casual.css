@@ -6,7 +6,7 @@
 
 body {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  background: url('../img/background_2.jpeg') no-repeat center center fixed;
+  background: url('../img/background_3.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -22,12 +22,16 @@ h1 {
 }
 
 .tagline-upper {
+  color: rgba(255, 240, 115, 0.96);
+  text-decoration: double;
   font-size: 5rem;
   font-weight: 700;
   line-height: 1;
 }
 
 .tagline-lower {
+  color: #fffdfb;
+  text-decoration: inherit;
   font-size: 1.2rem;
   line-height: 1;
 }

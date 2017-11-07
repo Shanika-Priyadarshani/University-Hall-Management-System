@@ -23,8 +23,8 @@ body{
 }
 
 .navigation .header{
-    background-color: rgba(21, 10, 10, 0.25);
-    height: 150px;
+    background-color: rgb(0, 0, 0);
+    max-height: 150px;
     padding: 30px 20px;
 }
 

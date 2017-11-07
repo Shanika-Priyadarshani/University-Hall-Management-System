@@ -1,5 +1,5 @@
 html{
-    background: url("background.jpg") ;
+    background: url("background_4.jpg") ;
 	background-size: cover;
 }
 
@@ -21,24 +21,15 @@ body{
 	margin: 120px auto;
 }
 
-#registration-form .image{
-	float:left;
-	background-image: url("desk.jpg");
-	height: 900px;
-	width: 50%;
-	background-size: cover;
-	background-position: 25%;
-
-}
 
 #registration-form .frm{
-	float:right;
-	height: 900px;
-    width: 50%;
-    min-width: 250px;
-    padding: 0 35px;
+	height: auto;
+    width: 100%;
+    min-width: 500px;
+    padding: 50px 10px 10px 25px;
     background-size: 100% 100%;
     background-color: white;
+	border-radius: 1%;
 
 }
 
@@ -86,4 +77,28 @@ body{
 		width: 100%;
 		margin-top: 20px;
 	}
+}
+
+.top-bar{
+	text-align: center;
+}
+
+ul li{
+	display: inline;
+}
+
+ul li label{
+	width: 30%;
+}
+
+ul li input{
+	width: 30%;
+	padding: 12px 20px;
+	height: auto;
+
+}
+
+.frm h1{
+	color: #430086;
+	text-decoration: double;
 }
