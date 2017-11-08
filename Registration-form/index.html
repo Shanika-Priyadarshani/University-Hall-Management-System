@@ -1,3 +1,6 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="user_validation.js"></script>
+
 <!DOCTYPE html>
 <html>
 
@@ -17,38 +20,45 @@
         </div>
         <div class="frm">
             <h1>Register</h1>
-            <form action="test.php" method="post">
+            <form action="../inc/register.php" method="post" name="register_frm" id="register_frm">
                 <div class="form-group">
                     <label for="index_number">Index Number:</label>
-                    <input type="text" class="form-control" name="index_number" id="index_number"  placeholder="Enter Index Number">
+                    <input type="text" class="form-control" name="index_number" id="index_number"  placeholder="Enter Index Number" required>
                 </div>
                 <div class="form-group">
                     <label for="first_name">First Name:</label>
-                    <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Enter First Name">
+                    <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Enter First Name" required>
                 </div>
                 <div class="form-group">
                     <label for="last_name">Last Name:</label>
-                    <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Enter Last Name">
+                    <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Enter Last Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select class="form-control" id="gender" name="gender">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" required>
                 </div>
                 <div class="form-group">
                     <label for="faculty">Faculty:</label>
-                    <input type="text" class="form-control" name="faculty" id="faculty" placeholder="Enter Faculty">
+                    <input type="text" class="form-control" name="faculty" id="faculty" placeholder="Enter Faculty" required>
                 </div>
                 <div class="form-group">
                     <label for="department">Department:</label>
                     <input type="text" class="form-control" name="department" id="department" placeholder="Enter Department">
                 </div>
                 <div class="form-group">
-                    <label for="email">Academic Year:</label>
-                    <input type="text" class="form-control" name="academic_year" id="academic_year" placeholder="Academic Year">
+                    <label for="academic_year">Academic Year:</label>
+                    <input type="number" min="0" max="5" class="form-control" name="academic_year" id="academic_year" placeholder="Academic Year" required>
                 </div>
                 <div class="form-group">
                     <label for="accomodation_year">Expected year for Accomodation:</label>
-                    <input type="text" class="form-control" name="accomodation_year" id="accomodation_year" placeholder="Accomodation Year">
+                    <input type="number" min="2017" class="form-control" name="accomodation_year" id="accomodation_year" placeholder="Accomodation Year" required>
                 </div>
                 <div class="form-group-address">
                     <label for="email">Home Address:</label>
@@ -60,31 +70,42 @@
                    </ul>
                     <ul class="home_address">
                         <li><input type="text" class="form-control_2" name="street" id="street" placeholder="Enter Street"></li>
-                        <li><input type="text" class="form-control_2" name="town" id="town" placeholder="Enter Town"></li>
-                        <li><input type="text" class="form-control_2" name="city" id="city" placeholder="Enter City "></li>
+                        <li><input type="text" class="form-control_2" name="town" id="town" placeholder="Enter Town" required></li>
+                        <li><input type="text" class="form-control_2" name="city" id="city" placeholder="Enter City " required></li>
                     </ul>
                 </div>
                 <div class="form-group">
-                    <label for="contact_number1">Contact Numbers:</label>
+                    <label for="contact_number1">Contact Numbers:</label><span id="message2"></span>
                     <ul>
-                        <li><input type="text" class="form-control_2" name="contact_number1" id="contact_number1" placeholder="Enter Contact Number-1"></li>
-                        <li><input type="text" class="form-control_2" name="contact_number2" id="contact_number2" placeholder="Enter Contact Number-2"></li>
+                        <li><input type="tel" class="form-control_2" name="contact_number1" id="contact_number1" placeholder="Enter Contact Number-1" onkeyup="check_tel()" required></li>
+                        <li><input type="tel" class="form-control_2" name="contact_number2" id="contact_number2" placeholder="Enter Contact Number-2" onkeyup="check_tel()"></li>
                     </ul>
                 </div>
                 <div class="form-group">
-                    <label for="pwd">Password:</label>
-                    <input type="password" class="form-control" name="pwd" id="pwd" placeholder="Enter password">
+                    <label for="password">Password:</label> <span id="message1"></span>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Enter password" onkeyup='check();' required>
                 </div>
                 <div class="form-group">
-                    <label for="conf_pwd">Confirm Password:</label>
-                    <input type="password" class="form-control" name="conf_pwd" id="conf_pwd" placeholder="Confirm Password">
+                    <label for="confirm_password">Confirm Password:</label>  <span id="message"></span>
+                    <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="Confirm Password" onkeyup='check();' required>
                 </div>
+
                 <div class="form-group">
-                    <button type="submit" class="btn btn-success btn-lg" onclick="document.location.href='test.php'">Submit</button>
+                    <button type="submit" id="submit_btn" name="submit_btn" class="btn btn-success btn-lg" onclick="">Submit</button>
                 </div>
+
             </form>
+
+
         </div>
+
     </div>
+
+
+
+
 </body>
 
 </html>
+
+
