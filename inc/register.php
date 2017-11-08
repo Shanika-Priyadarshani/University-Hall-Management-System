@@ -70,9 +70,10 @@ function register($array){
         $added2 =mysqli_query($con,$query2);
         $added3 =mysqli_query($con,$query3);
         $added3 =mysqli_query($con,$query4);
+        $id=$array['index_number'];
 
         mysqli_close($con);
-        header("Location:../Admin/index.html");
+        header("Location:../Admin/index.html?user_id='$id'");
         exit();
 
 
