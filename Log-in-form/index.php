@@ -22,20 +22,32 @@
         </div>
         <form action="../inc/login.php" method="post">
             <div class="form-group">
-                <input type="text" class="form-control" id="username" placeholder="Enter username or e-mail" required>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Enter username or e-mail" required>
             </div>
             <div class="form-group">
-                <select class="form-control" required>
+                <select class="form-control" id="mem_type" name="mem_type" required >
                     <option value="Admin">Admin</option>
                     <option value="Student">Student</option>
                     <option value="Employee">Employee</option>
                 </select>
             </div>
             <div class="form-group" >
-                <input type="password" class="form-control" id="pwd" placeholder="Enter password" required>
+                <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Enter password" required>
             </div>
             <div class="form-group form-group-btn">
                 <button type="submit" class="btn btn-success btn-lg" >Log In</button>
+            </div>
+            <div class="message">
+                <span id="msg">
+                   <h3>
+                        <?php
+                        if( $_SERVER['HTTP_REFERER']!='http://localhost/University-Hall-Management-System/index.html' && $_SERVER['HTTP_REFERER']!='http://localhost/University-Hall-Management-System/Registration-form/index.html' )
+                            echo "Invalied Username,Userser type or Password";
+                        elseif($_SERVER['HTTP_REFERER']=='http://localhost/University-Hall-Management-System/Registration-form/index.html')
+                            echo  " You have already registered to the System....Please Login"
+                        ?>
+                   </h3>
+                </span>
             </div>
             <div class="clearfix"></div>
             <div class="checkbox">

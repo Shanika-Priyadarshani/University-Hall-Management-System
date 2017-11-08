@@ -34,7 +34,7 @@ function register($array){
 
 
 
-        $query2="insert into login_details (id, pwd, member_type,email) values ('";
+        $query2="insert into login_details (user_id, pwd, member_type,email) values ('";
         $query2 .= $array['index_number'];
         $query2 .= "','";
         $query2 .= md5($array['password']);
@@ -84,7 +84,7 @@ function register($array){
         echo "<script language='javascript'>";
         echo "alert('You are already registered')";
         echo "</script>";
-        header("Location:../Log-in-form/index.html");
+        header("Location:../Log-in-form/index.php");
         exit();
 
     }
