@@ -24,7 +24,7 @@ function login($array){
             exit();
         }
         elseif ($res['member_type']=='Student'){
-            header("Location:../Admin/index.html?id='$user_name'");
+            header("Location:../Student/index.html?id='$user_name'");
             exit();
         }
         elseif ($res['member_type']=='Employee'){

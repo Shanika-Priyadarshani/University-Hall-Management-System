@@ -73,7 +73,7 @@ function register($array){
         $id=$array['index_number'];
 
         mysqli_close($con);
-        header("Location:../Admin/index.html?user_id='$id'");
+        header("Location:../Student/index.html?user_id='$id'");
         exit();
 
 
