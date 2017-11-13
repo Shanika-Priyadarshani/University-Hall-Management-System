@@ -7,7 +7,7 @@
  */
 
 function login($array){
-    include '../connection.php';
+    include_once '../connection.php';
     $con = connect();
     $user_name=$array['username'];
     $mem_type=$array['mem_type'];
@@ -17,22 +17,27 @@ function login($array){
     $res = $result->fetch_array();
     echo $query1;
     mysqli_close($con);
+    session_start();
 
     if($password==$res['pwd'] && $mem_type==$res['member_type']){
         if ( $res['member_type']=='Admin'){
-            header("Location:../Admin/index.html?id='$user_name'");
+            $_SESSION['id']=$user_name;
+            header("Location:../Admin/AdminNew.php");
             exit();
         }
         elseif ($res['member_type']=='Student'){
-            header("Location:../Student/index.html?id='$user_name'");
+            $_SESSION['id']=$user_name;
+            header("Location:../Student/index.php");
             exit();
         }
         elseif ($res['member_type']=='Employee'){
-            header("Location:../Employee/index.html?id='$user_name'");
+            $_SESSION['id']=$user_name;
+            header("Location:../Employee/index.html");
             exit();
         }
     }
     else{
+        $_SESSION['validity']='invalied';
         header("Location:../Log-in-form/index.php");
         exit();
     }

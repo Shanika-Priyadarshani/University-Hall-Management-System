@@ -41,10 +41,14 @@
                 <span id="msg">
                    <h3>
                         <?php
-                        if( $_SERVER['HTTP_REFERER']!='http://localhost/University-Hall-Management-System/index.html' && $_SERVER['HTTP_REFERER']!='http://localhost/University-Hall-Management-System/Registration-form/index.html' )
-                            echo "Invalied Username,Userser type or Password";
-                        elseif($_SERVER['HTTP_REFERER']=='http://localhost/University-Hall-Management-System/Registration-form/index.html')
-                            echo  " You have already registered to the System....Please Login"
+                        //*if( $_SERVER['HTTP_REFERER']!='http://localhost/University-Hall-Management-System/index.html' && $_SERVER['HTTP_REFERER']!='http://localhost/University-Hall-Management-System/Registration-form/index.html' )
+                            //echo "Invalied Username,Userser type or Password";
+                       // elseif($_SERVER['HTTP_REFERER']=='http://localhost/University-Hall-Management-System/Registration-form/index.html')
+                          //  echo  " You have already registered to the System....Please Login"
+
+                       // if ($_SESSION['validitity']=='invalied');
+                          //  echo 'Invalied username or password'
+
                         ?>
                    </h3>
                 </span>

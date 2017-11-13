@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <div class="main-img">
-        <img src="../img/head.jpg" alt="Hall Management System - UoS ">
+        <img src="css/head.jpg" alt="Hall Management System - UoS ">
     </div><!--main-image-->
     <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Antic'>
 
@@ -41,7 +41,9 @@
           ?> <p class="title">Please enter at least one searching criteria</p><?php
         }
         else{
-            $view="CREATE VIEW student_pays AS SELECT user_details.first_name,user_details.last_name,payment.payment_id,payment.user_id,payment.payment_date,payment.amount FROM payment INNER JOIN user_details on payment.user_id=user_details.user_id";
+            $view="CREATE VIEW student_pays AS SELECT user_details.first_name,user_details.last_name,payment.payment_id,
+            payment.user_id,payment.payment_date,payment.amount FROM payment INNER JOIN user_details 
+            on payment.user_id=user_details.user_id";
             mysqli_set_charset($con, 'utf8');
             $dat = mysqli_query($con, $view);
 

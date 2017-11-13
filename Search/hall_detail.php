@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <div class="main-img">
-        <img src="../img/head.jpg" alt="Hall Management System - UoS ">
+        <img src="css/head.jpg" alt="Hall Management System - UoS ">
     </div><!--main-image-->
 
     <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Antic'>

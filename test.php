@@ -11,5 +11,12 @@ while($row = $data->fetch_assoc()) {
 
     echo $row["first_name"] . "<br>";
 
+
 }
+
+
+session_start();
+$_SESSION['id']='123';
 ?>
+
+<a href="test2.php">Click me</a>

@@ -1,0 +1,104 @@
+html{
+    background: url("../images/Seamless-Polygon-Backgrounds-Vol2-full_Kfb2t3Q.jpg") ;
+    background-size: cover;
+}
+
+.content{
+    margin-top: 0px;
+}
+
+body{
+    background-color: transparent;
+}
+.editform{
+
+    max-width: 600px;
+    margin-top: 120px;
+    margin-bottom: 120px;
+    margin-left: 100px;
+   /* margin: 120px auto;*/
+}
+.editform form{
+    display: inline-block;
+}
+.editform form input{
+    border-radius: 2px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.editform form label{
+    font-family: sans-serif;
+    font-weight: 200;
+    font-size: medium;
+}
+.t1{
+    width: 500px;
+    height: 50px;
+    border-radius: 10px;
+    margin-left: 350px;
+    margin-top: 25px;
+    font-family: sans-serif;
+    font-size: large;
+    padding:10px 10px 10px 25px ;
+}
+.btn1{
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-top: 25px;
+    font-family: sans-serif;
+    font-size: large;
+    font-weight: 200;
+    background-color: #ff7f86;
+}
+
+.inneredit{
+    float: left;
+    height: auto;
+    width: 100%;
+    min-width: 500px;
+    padding: 50px 10px 10px 25px;
+    background-size: 100% 100%;
+    background-color: #8793ff;
+    border-radius: 1%;
+
+}
+
+.inneredit h1{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.form-control{
+    width: 120%;
+    padding: 12px 20px;
+    height: auto;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #ff2b21;
+}
+.bottombtn input{
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    margin-left: 600px;
+    margin-top: 10px;
+    font-family: sans-serif;
+    font-size: large;
+    font-weight: 200;
+    background-color: #b2ffdc;
+}
+.wrong label{
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #1c0e17;
+    font-size: larger;
+
+}
+.showhistory{
+     background-color: #ff204b;
+    float: right;
+    margin-right: 100px;
+}

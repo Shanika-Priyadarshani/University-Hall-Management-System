@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <div class="main-img">
-        <img src="../img/head.jpg" alt="Hall Management System - UoS ">
+        <img src="css/head.jpg" alt="Hall Management System - UoS ">
     </div><!--main-image-->
     <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Antic'>
 
@@ -21,76 +21,97 @@
     <div class="text"></div>
 
     <form method="get" ACTION=student_detail.php>
-        <input class="pay" name="payment_id" type="text" placeholder="Payment ID">
-        <input class="pay" name="user_id" type="text" placeholder="Student ID">
-        <input class="pay"  type="date" name="payment_date" id="payment_date"/>
+        <select class="hall" name="criteria">
 
+            <option hidden value="">Select a Criteria...</option>
+            <option value="user_id">Student ID</option>
+            <option value="first_name">First Name</option>
+            <option value="last_name">Last Name</option>
+            <option value="dept_name">Department Name</option>
+            <option value="faculty">Faculty</option>
+        </select>
+        <input class="hall" name="keyword" type="text" hidden value="" placeholder="Type Here...">
         <input class="button" id="button" type="submit" value="Search" name="search"> <br>
     </form>
 
     <?php
 
     if(isset($_GET['search']) ) {
-        $payment_id = $_GET['payment_id'];
-        $user_id = $_GET['user_id'];
-        $payment_date = $_GET['payment_date'];
+
+        $criteria = $_GET['criteria'];
+        $keyword = $_GET['keyword'];
+
+
         include '../connection.php';
         $con = connect();
-        $query=null;
-        $data=null;
-        if (empty($payment_id)  and empty($payment_date) and empty($user_id)) {
-            ?> <p class="title">Please enter at least one searching criteria</p><?php
-        }
-        else{
-            $view="CREATE VIEW student_pays AS SELECT user_details.first_name,user_details.last_name,payment.payment_id,payment.user_id,payment.payment_date,payment.amount FROM payment INNER JOIN user_details on payment.user_id=user_details.user_id";
+        if ($criteria == "") {
+            ?>
+            <p class="text">Please select a Criteria First... </p>
+            <?php
+        } elseif ($keyword == "") {
+            ?>
+            <p class="text">Please Enter a Keyword... </p>
+            <?php
+        } else {
+
+            $first_view="CREATE VIEW student_detail_all AS SELECT student.user_id,student.dept_name,student.faculty,
+            student.year_balance,student.academic_year,
+            user_details.first_name,user_details.last_name,user_details.gender,user_details.street,user_details.town,user_details.city
+             FROM student  FULL OUTER JOIN user_details on student.user_id=user_details.user_id";
             mysqli_set_charset($con, 'utf8');
-            $dat = mysqli_query($con, $view);
+            $data1 = mysqli_query($con, $first_view);
 
-            if (!empty($payment_date) and !empty($payment_id) and !empty($payment_date)) {
 
-                $query = "select * from student_pays where payment_id='$payment_id' and payment_date='$payment_date' and payment_date='$payment_date' ORDER by payment_id";
+
+            $second_view="CREATE VIEW more_details AS SELECT login_details.user_id,login_details.email, accommodate.hall_id,accommodate.room_no,
+            accommodate.date_of_assignment,accommodate.date_of_leaving
+            FROM login_details FULL OUTER JOIN accommodate on accommodate.user_id=login_details.user_id;";
+            mysqli_set_charset($con, 'utf8');
+            $data2 = mysqli_query($con, $second_view);
+
+
+
+
+            $third_view="CREATE VIEW all_details AS SELECT * FROM student_detail_all   FULL OUTER JOIN more_details where
+             more_details.user_id=student_detail_all.user_id";
+            mysqli_set_charset($con, 'utf8');
+            $data3 = mysqli_query($con, $third_view);
+
+
+
+            if($criteria=="user_id"){
+                $query = "select * from all_details where user_id LIKE'%$keyword%'  ORDER by user_id";
                 mysqli_set_charset($con, 'utf8');
                 $data = mysqli_query($con, $query);
             }
 
-            elseif (!empty($payment_date) and !empty($payment_id)) {
-
-                $query = "select * from student_pays where payment_id='$payment_id' and payment_date='$payment_date' ORDER by payment_id";
+            elseif ($criteria=="first_name"){
+                $query = "select * from all_details where first_name LIKE'%$keyword%'  ORDER by user_id";
                 mysqli_set_charset($con, 'utf8');
                 $data = mysqli_query($con, $query);
             }
 
-            elseif (!empty($user_id) and !empty($payment_id)) {
-
-                $query = "select * from student_pays where payment_id='$payment_id' and user_id='$user_id' ORDER by payment_id";
+            elseif ($criteria=="last_name"){
+                $query = "select * from all_details where last_name LIKE'%$keyword%'  ORDER by user_id";
                 mysqli_set_charset($con, 'utf8');
                 $data = mysqli_query($con, $query);
             }
 
-            elseif (!empty($user_id) and !empty($payment_date)) {
-                $query = "select * from student_pays where user_id='$user_id' and payment_date='$payment_date'  ORDER by payment_id";
+           elseif ($criteria=="dept_name"){
+
+                $query = "select * from all_details where dept_name LIKE'%$keyword%' ORDER by user_id";
                 mysqli_set_charset($con, 'utf8');
                 $data = mysqli_query($con, $query);
+
             }
 
-            elseif (!empty($payment_id)) {
-
-                $query = "select * from student_pays where payment_id='$payment_id' ORDER by payment_id";
+            elseif ($criteria=="faculty"){
+                $query = "select * from all_details where faculty LIKE'%$keyword%'  ORDER by user_id";
                 mysqli_set_charset($con, 'utf8');
                 $data = mysqli_query($con, $query);
+
             }
 
-            elseif (!empty($user_id)) {
-                $query = "select * from student_pays where user_id='$user_id' ORDER by payment_id";
-                mysqli_set_charset($con, 'utf8');
-                $data = mysqli_query($con, $query);
-            }
-
-            elseif (!empty($payment_date)) {
-                $query = "select * from student_pays where payment_date='$payment_date' ORDER by payment_id";
-                mysqli_set_charset($con, 'utf8');
-                $data = mysqli_query($con, $query);
-            }
             $array=mysqli_fetch_array($data);
 
             if(empty($array)){
@@ -100,30 +121,43 @@
             }
             else {?>
                 <p class="title"> <?php  echo $data->num_rows; ?> Matching Results found.</p>
-
+                <div class="table">
                 <?php
-                echo '<table width="80%" border="2" cellpadding="6" cellspacing="5" class="text" >
+                echo '<table width="40%" border="2" cellpadding="6" cellspacing="5" class="text" >
          <tr class="title">
-             <th>Payment ID</th>
-             <th>Student Name</th>
+             <th> </th>
              <th>Student ID</th>
-             <th>Paid Amount (Rs.)</th>
-             <th>Date</th>
+             <th>Student Name</th>
+             <th>Gender</th>
+             
+             <th>Address</th>
+             <th>Department</th>
+             <th>Faculty</th>
+             <th>Year Balance</th>
+            
          </tr>';
 
                 foreach ($data as $row) {
                     echo '<tr>  
-             <td>' . $row["payment_id"] . '</td>
+              <td> 
+                   <img src="css/user.jpg"/> </td>
+              <td>' . $row["user_id"] . '</td>
              <td>' . $row["first_name"] ." ".$row["last_name"] . '</td>
-             <td>' . $row["user_id"] . '</td>
-             <td>' . $row["amount"] . '</td>
-             <td>' . $row["payment_date"] . '</td>  
-  
+            
+              <td>' . $row["email"] . '</td>
+               <td>' . $row["street"] .", ". $row["town"] .", ". $row["city"] . '</td>
+             <td>' . $row["dept_name"] . '</td>
+             <td>' . $row["faculty"] . '</td>
+             <td>' . $row["year_balance"] . '</td>
+          
+             
            </tr>';
                 }
                 echo '</table>';
+                ?></div> <!--table-->
+                <?php
             }
-        }
+     }
 
     }
 
