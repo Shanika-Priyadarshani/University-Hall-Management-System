@@ -118,7 +118,7 @@ $user_id=$_SESSION['id'];
                         <li><a href="#">Assign Employee</a></li>
                         <li class="active"><a href="#">Add Employee </a></li>
                         <li><a href="edit_student_accomodation.php">Edit Student Accommodation</a></li>
-                        <li class="active"><a href="../logout.php" >Logout</a></li>
+                        <li class="active"><a href="../inc/logout.php" >Logout</a></li>
                         <div class="clear"></div>
                     </ul>
                 </div>

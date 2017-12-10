@@ -36,7 +36,7 @@ function login($array){
         }
     }
     else{
-        $_SESSION['validity']='invalied';
+        $_SESSION['validity']='Invalied Username or Password';
         header("Location:../Log-in-form/index.php");
         exit();
     }
@@ -44,6 +44,8 @@ function login($array){
 
 }
 
-login($_POST);
+if(isset($_POST['submit_btn'])){
+    login($_POST);
+}
 
 ?>
