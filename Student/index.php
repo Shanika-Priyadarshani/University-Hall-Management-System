@@ -1,12 +1,5 @@
-<!--A Design by W3layouts
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-
+<?php session_start(); ?>
 <?php
-session_start();
 $ui=$_SESSION['id']
 ?>
 <!DOCTYPE HTML>
@@ -91,7 +84,7 @@ $ui=$_SESSION['id']
                 <div class="slider"><!-- start slider -->
 
 
-                     <?php //$ui='St170010' ?>
+
                       <div class="profileText" id="profile" >
                           <h1>Student Information</h1>
                           <?php
@@ -100,7 +93,7 @@ $ui=$_SESSION['id']
                           <ul class="listw">
 
                               <li><a href="#">user id :<span><?php echo $uid ?></span> </a></li>
-                              <li><a href="#">department name :<span><?php echo $array ?></span> </a></li>
+                              <li><a href="#">department name :<span><?php echo $deptname ?></span> </a></li>
                               <li><a href="#">Faculty :<span><?php echo $fct ?></span> </a></li>
                               <li><a href="#">academic year : <span><?php echo $acdmic ?></span> </a></li>
                               <li><a href="#">year balance : <span><?php echo $year_b?></span> </a></li>
@@ -151,7 +144,17 @@ $ui=$_SESSION['id']
                         <h1>Hall Details</h1>
                         <?php
                             include 'hall.php';
+
                         ?>
+                        <ul class="listw">
+
+                            <li><a href="#">Hall name :<span><?php echo $hllName ?></span> </a></li>
+                            <li><a href="#">Hall type :<span><?php echo $hallType ?></span> </a></li>
+                            <li><a href="#">Capacity :<span><?php echo $capacity ?></span> </a></li>
+                            <li><a href="#">No of washrooms : <span><?php echo $noOfWashrooms ?></span> </a></li>
+                            <li><a href="#">No of toilets : <span><?php echo $noOfToilets?></span> </a></li>
+                            <li><a href="#">Location : <span><?php echo $street.", ".$town?></span> </a></li>
+                        </ul>
 
                     </div>
 
@@ -184,7 +187,7 @@ $ui=$_SESSION['id']
                     </div>
                     <ul class="list1">
                         <ul>
-                            <li><a href="contact-us">Edit profile</a></li>
+                            <li><a href="editProfile.php">Edit profile</a></li>
                             <li><a href="../index.html" onclick=showhide()>Logout</a></li>
                             <li><a href="../Home/index.html">Home</a></li>
                             <li><a href="contact-us" onclick=showhide()>Contact Us</a></li>

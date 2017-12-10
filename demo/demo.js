@@ -13,19 +13,19 @@ $(function () {
 
             // Check if the hash is valid - it should exist as one of the menu items.
             if(selected_link.length){
-                iframe.contentWindow.location.replace( href + '/index.html');
+                iframe.contentWindow.location.replace( href + '/index.php');
 
                 menu_links.removeClass('active');
                 selected_link.addClass('active');
             }
             else{
-                iframe.contentWindow.location.replace('Registration-form/index.html');
+                iframe.contentWindow.location.replace('Registration-form/index.php');
                 menu_links.removeClass('active');
                 $(menu_links[0]).addClass('active');
             }
         }
         else{
-            iframe.contentWindow.location.replace('Registration-form/index.html');
+            iframe.contentWindow.location.replace('Registration-form/index.php');
             menu_links.removeClass('active');
             $(menu_links[0]).addClass('active');
         }

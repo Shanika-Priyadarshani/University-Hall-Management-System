@@ -16,21 +16,20 @@ $result = mysqli_query($con,$view1);
 $query = "SELECT * FROM accommodate , hall,facility WHERE hall.facility_id= facility.facility_id and accommodate.hall_id=hall.hall_id and accommodate.user_id='$ui'";
 $result = mysqli_query($con,$query);
 $output='';
-$output = "<form action='' method=\"get\" id=\"form1\" name = \"form1\"> <table name = \"History\">
-                                              <thead>
-                                          <caption></caption>
-                                            </thead><tbody><tr>
-                                                  <th>hall name</th>
-                                                  <th>capacity</th>
-                                                  <th >no of wash rooms</th>
-                                                  <th >no of toilets</th>                                         
-                                                   </tr>";
+
 if($result===FALSE){
     echo("error");
 }else{
     while($row = mysqli_fetch_array($result)) {
-        $output .=  '<tr><td >'. $row["hall_name"].'</td> <td>'. $row["capacity"].'</td> <td>'. $row["no_of_washrooms"].'</td><td>' . $row["no_of_toilets"].'</td>' ;
+        $hllName=$row["hall_name"];
+        $capacity=$row["capacity"];
+        $noOfWashrooms=$row["no_of_washrooms"];
+        $noOfToilets=$row["no_of_toilets"];
+        $hallType=$row["hall_type"];
+        $street=$row["street"];
+        $town=$row["town"];
     }
 }
-echo ($output.= "</tbody></table><br></form>");
+//echo ($output.= "</tbody></table><br></form>");
+
 ?>
