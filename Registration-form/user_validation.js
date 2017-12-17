@@ -31,7 +31,7 @@ var check_length=function(len){
 
 var check_tel =function () {
     if ((/^\d+$/.test(document.getElementById(contact_number1).value))&& check_length(9)){
-        document.getElementById('message').innerHTML = '';
+        document.getElementById('message2').innerHTML = '';
     }
     else
     {

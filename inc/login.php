@@ -12,8 +12,10 @@ function login($array){
     $user_name=$array['username'];
     $mem_type=$array['mem_type'];
     $password=md5($array['pwd']);
-    $query1="Select pwd,member_type from login_details where user_id='$user_name' or user_id='$user_name'";
-    $result=mysqli_query($con,$query1);
+    $stmt=$con->prepare("Select pwd,member_type from login_details where user_id=? or email=?");
+    $stmt->bind_param('ss',$user_name,$user_name);
+    $stmt->execute();
+    $result=$stmt->get_result();
     $res = $result->fetch_array();
     //echo $query1;
     mysqli_close($con);
